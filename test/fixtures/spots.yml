@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  wifi_quality: MyString
+  price: 1
+  noise: MyString
+  food_beverage: MyString
+
+two:
+  category: MyString
+  wifi_quality: MyString
+  price: 1
+  noise: MyString
+  food_beverage: MyString
