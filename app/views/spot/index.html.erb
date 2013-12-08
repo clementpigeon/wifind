@@ -164,19 +164,24 @@
 	  <link rel="stylesheet" href="/resources/demos/style.css">
 	  <script>
 
-    var handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    var markers = handler.addMarkers(<%=raw @hash.to_json %>);
-    // var markers = handler.addMarkers([
-    // {
-    //   "lat": 48.858743,
-    //   "lng": 2.42598,
-    //   "infowindow": "hello!"
-    // }
-    //  ]);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    });
+    // var handler = Gmaps.build('Google');
+    // handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    // var markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    // // var markers = handler.addMarkers([
+    // // {
+    // //   "lat": 48.858743,
+    // //   "lng": 2.42598,
+    // //   "infowindow": "hello!"
+    // // }
+    // //  ]);
+    // handler.bounds.extendWith(markers);
+    // handler.fitMapToBounds();
+    // });
+
+
+  
+
+
 
     console.log(<%= raw @hash.to_json%>)
 
