@@ -38,6 +38,12 @@
               <h3 class='spot_name'>Starbucks</h3>
               <p class='spot_address'>Carrousel du Louvre, Paris, Île-de-France 75001</p>
               <p class='spot_cat'>Coffee Shop</p><br>
+              <div id='send_option'
+              <p>Send me the address on my phone</p>
+              <input id='phone_number' type='text'></input>
+              <input type='hidden' id="authenticity_token" value='<%= form_authenticity_token %>'></input>
+              <a href='#' id='send_text'>Send</a>
+            </div>
             </div>
 
             <div id='rate_form'>
@@ -60,34 +66,44 @@
               </form> 
            </div>
           </div>
-
         </div><!--/span-->
 
-
         <div class="span9">
-          <div class="hero-unit">
-			  <div class="slider_container span3">
-			    <label for="price_label">Price</label>
-			    <input type="text" id="price_label" style="border:0; color:#f6931f; font-weight:bold;">
-				<div id="price_slider" class="slider"></div>
-			  </div>
+          <div class="hero-unit filters_container">
+			      <div class="slider_container span3">
+    			     <label for="price_label">Price</label>
+                    <select id='price_filter'>
+                      <option value="1">Indifferent</option>
+                      <option value="1">Free</option>
+                      <option value="2">Cheap</option>
+                      <option value="3">Pricy</option>
+                    </select>
+    			  </div>
+
+			     <div class="slider_container span3">
+              <label for="price_label">Wifi quality</label>
+                  <select id='wifi_filter'>
+                    <option value="1">Any</option>
+                    <option value="2">Decent</option>
+                    <option value="3">Good</option>
+                  </select>
+            </div>
+
+           <div class="slider_container span3">
+              <label for="price_label">Noise level</label>
+                <select id='price_filter'>
+                  <option value="1">Any</option>
+                  <option value="2">Not too loud</option>
+                  <option value="3">Quiet and peaceful!</option>
+              </select>
+      </div>
 			  
-			  
-			  
-			  <div class="slider_container span3" >
-			    <label for="wifi_label">Wifi</label>
-			    <input type="text" id="wifi_label" style="border:0; color:#f6931f; font-weight:bold;">
-				<div id="wifi_slider" class="slider"></div>
-			  </div>
-			  
-			  
-			  <div class="slider_container span3">
-			    <label for="noise_label">Noise</label>
-			    <input type="text" id="noise_label" style="border:0; color:#f6931f; font-weight:bold;">
-			  <div id="noise_slider" class="slider"></div>
-			              
-		  </div>
-		<div class="slider_container span2"><p style="margin-top:20px; margin-left:20px;"><a href="#" class="btn btn-primary btn-small">Go &raquo;</a></p></div>
+			 
+		<div class="slider_container span2">
+      <p style="margin-top:20px; margin-left:20px;">
+        <a id='update_filters_button' href="#" class="btn btn-primary btn-small">Update map &raquo;</a>
+      </p>
+    </div>
 			  
 
           <div id="themap" class='foo'>

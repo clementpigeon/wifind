@@ -1,6 +1,8 @@
 Wifind::Application.routes.draw do
   get "spot/index"
 
+  post '/send_text', to: 'text_sender#send_text_message'
+  
   root :to => "spot#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

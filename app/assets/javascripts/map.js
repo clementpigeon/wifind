@@ -1,98 +1,3 @@
-var spots2 = [
-    {
-        "id": "5064180c830238fd7713e9f4",
-        "name": "Starbucks",
-        "contact": {
-            "phone": "+33143450456",
-            "formattedPhone": "+33 1 43 45 04 56",
-            "twitter": "starbucksfrance"
-        },
-        "location": {
-            "address": "Gare de Paris-Lyon",
-            "crossStreet": "Hall 3",
-            "lat": 48.858,
-            "lng": 2.4258,
-            "distance": 4051,
-            "postalCode": "75012",
-            "cc": "FR",
-            "city": "Paris",
-            "state": "Île-de-France",
-            "country": "France"
-        },
-        "categories": [
-            {
-                "id": "4bf58dd8d48988d1e0931735",
-                "name": "Coffee Shop",
-                "pluralName": "Coffee Shops",
-                "shortName": "Coffee Shop",
-                "icon": "https://ss1.4sqi.net/img/categories/food/coffeeshop.png",
-                "parents": [
-                    "Food"
-                ],
-                "primary": true
-            }
-        ],
-        "verified": true,
-        "restricted": true,
-        "stats": {
-            "checkinsCount": 604,
-            "usersCount": 378,
-            "tipCount": 6
-        },
-        "url": "http://www.starbucks.fr",
-        "likes": {
-            "count": 0,
-            "groups": []
-        }
-    },
-    
-    {
-        "id": "5064180c830238fd7713e9f",
-        "name": "Cafe Charlot",
-        "contact": {
-            "phone": "+33143450456",
-            "formattedPhone": "+33 1 43 45 04 56",
-            "twitter": "starbucksfrance"
-        },
-        "location": {
-            "address": "Place de la Republique",
-            "crossStreet": "Hall 3",
-            "lat": 48.8588,
-            "lng": 2.4259,
-            "distance": 4051,
-            "postalCode": "75010",
-            "cc": "FR",
-            "city": "Paris",
-            "state": "Île-de-France",
-            "country": "France"
-        },
-        "categories": [
-            {
-                "id": "4bf58dd8d48988d1e0931735",
-                "name": "Bar",
-                "pluralName": "Coffee Shops",
-                "shortName": "Coffee Shop",
-                "icon": "https://ss1.4sqi.net/img/categories/food/coffeeshop.png",
-                "parents": [
-                    "Food"
-                ],
-                "primary": true
-            }
-        ],
-        "verified": true,
-        "restricted": true,
-        "stats": {
-            "checkinsCount": 604,
-            "usersCount": 378,
-            "tipCount": 6
-        },
-        "url": "http://www.starbucks.fr",
-        "likes": {
-            "count": 0,
-            "groups": []
-        }
-    }
-];
 var markers;
 
 $(document).ready(function () {
@@ -111,7 +16,23 @@ $(document).ready(function () {
         console.log(data);
         $('#rate_form').html('<b>Thanks for your contribution!</b>');
     });
-    
+    $('#update_filters_button').on('click', function(e){
+        e.preventDefault();
+        console.log('update filters');
+    });
+
+    $('#send_text').on('click', function(e){
+        e.preventDefault();
+        var phone_number = $('#phone_number').val();
+        var authenticity_token = $('#authenticity_token').val();
+        var address_to_send =  $('.spot_name').text() + ': '+ $('.spot_address').text();
+
+        var url = '/send_text';
+        $.post(url, {number_to_send_to : phone_number, authenticity_token: authenticity_token, message: address_to_send}, function(){
+            console.log('post request sent');
+        })
+        console.log('send text to '+ phone_number);
+    });
 });
 
 function init_map(){
@@ -127,14 +48,6 @@ function init_map(){
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map($('#themap')[0], options);
-
-    
-     // map.addListener('center_changed', function() {
-     //    window.to = window.setTimeout(function() {
-     //        var new_center = map.getCenter();
-     //        console.log(new_center);
-     //    }, 3000);
-     // });
 
     return map;
 }
@@ -165,7 +78,6 @@ function addMarker (data, map){
 function updateInfobox(marker){
     $('.spot_name').html(marker.data.name);
     var location = marker.data.location;
-    // var full_adress = [location.address, location.postalCode, location.city].join(' '); 
     $('.spot_address').html(marker.data.address);
     $('.spot_id').attr('data-id', marker.data.id);
     $('.spot_cat').html(marker.data.category);

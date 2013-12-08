@@ -1,3 +1,7 @@
+.filters_container select {
+  width: 160px;
+}
+
 
 #themap {
      height: 550px;
@@ -29,10 +33,11 @@
   padding-top: 140px!important;
 }
 
-#rate_form {
+#rate_form, #send_option {
     border-radius: 3px;
     border: 1px solid #333;
     padding: 10px;
+    margin-bottom: 20px;
 }
 
 .login {
