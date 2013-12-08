@@ -29,10 +29,10 @@ class SpotController < ApplicationController
 		  			# spot.noise = "none"
 		  			# spot.save
 		  			# food_beverage = "none"
-		  		end
-		  	end
-	  	end
-	end
+	# 	  		end
+	# 	  	end
+	#   	end
+	# end
 
 	@spots = Spot.all
 	# @hash = Gmaps4rails.build_markers(@spots) do |spot, marker|
