@@ -1,4 +1,4 @@
-var spots = [
+var spots2 = [
     {
         "id": "5064180c830238fd7713e9f4",
         "name": "Starbucks",
@@ -96,7 +96,8 @@ var spots = [
 var markers;
 
 $(document).ready(function () {
-    var map = init_map();        
+    var map = init_map();     
+    console.log(spots);   
     place_markers(spots, map);
 
     $('body').on('submit', 'form#rate_a_place', function(e){
@@ -117,11 +118,11 @@ function init_map(){
     console.log('init map');
     var map;
     markers = [];
-    var current_pos = new google.maps.LatLng(48.858743,2.425851);
+    var current_pos = new google.maps.LatLng(48.872548,2.344505);
     var centerPosition = current_pos;
 
     var options = {
-        zoom: 16,
+        zoom: 14,
         center: centerPosition,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -146,7 +147,7 @@ function place_markers(spots, map){
 
 function addMarker (data, map){
     var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(data.location.lat, data.location.lng),
+        position: new google.maps.LatLng(data.lat, data.lng),
         map: map,
         name: data.name,
         data: data
@@ -164,10 +165,10 @@ function addMarker (data, map){
 function updateInfobox(marker){
     $('.spot_name').html(marker.data.name);
     var location = marker.data.location;
-    var full_adress = [location.address, location.postalCode, location.city].join(' '); 
-    $('.spot_address').html(full_adress);
+    // var full_adress = [location.address, location.postalCode, location.city].join(' '); 
+    $('.spot_address').html(marker.data.address);
     $('.spot_id').attr('data-id', marker.data.id);
-    $('.spot_cat').html(marker.data.categories[0].name);
+    $('.spot_cat').html(marker.data.category);
 }
 
 function selectMarker (marker) {

@@ -1,17 +1,17 @@
 class SpotController < ApplicationController
   def index
-  	# client = Foursquare2::Client.new(:client_id => '32KYUGGKRINVMAXF2HGA2XLWNIF5R3JDSWBTRPUGUX2S35YX', :client_secret => 'CA41PYYT2R035YOB2HYVO5F0LEPGINUIITL3FW10JDP044TF')
+  	#  client = Foursquare2::Client.new(:client_id => '32KYUGGKRINVMAXF2HGA2XLWNIF5R3JDSWBTRPUGUX2S35YX', :client_secret => 'CA41PYYT2R035YOB2HYVO5F0LEPGINUIITL3FW10JDP044TF')
   	# search_tab = []
   	# search_tab << "bar"
   	# search_tab << "Coworking"
   	# search_tab << "coffee"
   	# search_tab.each do  |elem|
 	  #  	spots = client.search_venues(:ll => '48.858743,2.42598', :query => elem, :radius => "5000").to_hash
-	  	#spots = client.search_venues(:ll => '48.872548,2.344505', :query => elem).to_hash
+	  	# spots = client.search_venues(:ll => '48.872548,2.344505', :query => elem).to_hash
 	  	# spots["groups"].first["items"].each do | spot|
-	  	#   	details = client.venue(spot["id"]).to_hash
-		  # 	details["attributes"]["groups"].each  do | item| 
-		  # 		if item.has_value?("wifi")
+	  	#    	details = client.venue(spot["id"]).to_hash
+		  #  	details["attributes"]["groups"].each  do | item| 
+		  #  		if item.has_value?("wifi")
 		  # 			puts "----"
 		  # 			details["photos"]["groups"].each do | items|
   		# 				items["items"].each do | elem|
@@ -19,19 +19,19 @@ class SpotController < ApplicationController
 	  	# 				end
 		  # 			end
 		  # 			puts "----"
-		  			# spot = Spot.new
-		  			# spot.name = details["name"]
-		  			# spot.category = elem
-		  			# spot.lat = details['location']['lat']
-		  			# spot.lng = details['location']['lng']
-		  			# spot.address = details['location']['address'].to_s + ", " + details['location']['postalCode'].to_s + ", " + details['location']['city'].to_s + ", " + details['location']['country'].to_s
-		  			# spot.wifi_quality = "none"
-		  			# spot.noise = "none"
-		  			# spot.save
-		  			# food_beverage = "none"
-	# 	  		end
-	# 	  	end
-	#   	end
+	# 	  			spot = Spot.new
+	# 	  			spot.name = details["name"]
+	# 	  			spot.category = elem
+	# 	  			spot.lat = details['location']['lat']
+	# 	  			spot.lng = details['location']['lng']
+	# 	  			spot.address = details['location']['address'].to_s + ", " + details['location']['postalCode'].to_s + ", " + details['location']['city'].to_s + ", " + details['location']['country'].to_s
+	# 	  			spot.wifi_quality = "none"
+	# 	  			spot.noise = "none"
+	# 	  			spot.save
+	# 	  			food_beverage = "none"
+ # 	  			end
+ # 	  		end
+ #   		end
 	# end
 
 	@spots = Spot.all
@@ -43,6 +43,6 @@ class SpotController < ApplicationController
 	# end
 
 	# p @hash
-
+	p @spots
   end
 end
