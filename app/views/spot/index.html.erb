@@ -37,9 +37,9 @@
               <img src="assets/img/starbucks.jpg"></img>
               <h3 class='spot_name'>Starbucks</h3>
               <p class='spot_address'>Carrousel du Louvre, Paris, Île-de-France 75001</p>
-              <p class='spot_cat'>Coffee Shop</p><br>
+              <p>Category: <span class='spot_cat'>Coffee Shop</span></p><br>
               <div id='send_option'
-              <p>Send me the address on my phone</p>
+              <p>Send me this address on my phone</p>
               <input id='phone_number' type='text'></input>
               <input type='hidden' id="authenticity_token" value='<%= form_authenticity_token %>'></input>
               <a href='#' id='send_text'>Send</a>
@@ -70,11 +70,12 @@
 
         <div class="span9">
           <div class="hero-unit filters_container">
+            <p>What can of spot are you looking for?</p>
 			      <div class="slider_container span3">
     			     <label for="price_label">Price</label>
                     <select id='price_filter'>
-                      <option value="1">Indifferent</option>
-                      <option value="1">Free</option>
+                      <option value="1">Whatever</option>
+                      <option value="1">Free only</option>
                       <option value="2">Cheap</option>
                       <option value="3">Pricy</option>
                     </select>
@@ -83,17 +84,17 @@
 			     <div class="slider_container span3">
               <label for="price_label">Wifi quality</label>
                   <select id='wifi_filter'>
-                    <option value="1">Any</option>
-                    <option value="2">Decent</option>
-                    <option value="3">Good</option>
+                    <option value="1">Any will do</option>
+                    <option value="2">Decent connection</option>
+                    <option value="3">Good - I want to skype</option>
                   </select>
             </div>
 
            <div class="slider_container span3">
               <label for="price_label">Noise level</label>
                 <select id='price_filter'>
-                  <option value="1">Any</option>
-                  <option value="2">Not too loud</option>
+                  <option value="1">I don't mind</option>
+                  <option value="2">Not too loud, please</option>
                   <option value="3">Quiet and peaceful!</option>
               </select>
       </div>

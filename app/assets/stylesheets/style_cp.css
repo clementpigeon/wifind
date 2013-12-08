@@ -8,6 +8,11 @@
      width: 825px;
 
  }
+
+#themap img {
+    max-width: none;
+}
+
 #wrap {
     width: 900;
     margin: 0 auto;
