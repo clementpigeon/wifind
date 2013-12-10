@@ -9,7 +9,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">WiFinder</a>
+          <a class="brand" href="#">WiFind</a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right login">
               Logged in as <a href="#" class="navbar-link">Username</a>
@@ -38,12 +38,6 @@
               <h3 class='spot_name'>Starbucks</h3>
               <p class='spot_address'>Carrousel du Louvre, Paris, Île-de-France 75001</p>
               <p>Category: <span class='spot_cat'>Coffee Shop</span></p><br>
-              <div id='send_option'
-              <p>Send me this address on my phone</p>
-              <input id='phone_number' type='text'></input>
-              <input type='hidden' id="authenticity_token" value='<%= form_authenticity_token %>'></input>
-              <a href='#' id='send_text'>Send</a>
-            </div>
             </div>
 
             <div id='rate_form'>
@@ -70,7 +64,7 @@
 
         <div class="span9">
           <div class="hero-unit filters_container">
-            <p>What can of spot are you looking for?</p>
+            <p>What kind of spot are you looking for?</p>
 			      <div class="slider_container span3">
     			     <label for="price_label">Price</label>
                     <select id='price_filter'>
@@ -133,46 +127,4 @@
 	  <script>
     var spots = <%= raw @spots.to_json%>;
     console.log(spots);
-
-
-	  $(function() {
-	    $( "#price_slider" ).slider({
-	      value:0,
-	      min: 0,
-	      max: 500,
-	      step: 50,
-		  orientation: "horizontal",
-	      slide: function( event, ui ) {
-	        $( "#price_label" ).val( "$" + ui.value );
-	      }
-	    });
-	    $( "price_label" ).val( "$" + $( "#price_slider" ).slider( "value" ) );
-		
-	    $( "#wifi_slider" ).slider({
-	      value:0,
-	      min: 0,
-	      max: 500,
-	      step: 50,
-		  orientation: "horizontal",
-	      slide: function( event, ui ) {
-	        $( "wifi_label" ).val( "$" + ui.value );
-	      }
-	    });
-	    $( "#wifi_label" ).val( "$" + $( "#wifi_slider" ).slider( "value" ) );
-		
-		
-	    $( "#noise_slider" ).slider({
-	      value:0
-		  ,
-	      min: 0,
-	      max: 500,
-	      step: 50,
-		  orientation: "horizontal",
-	      slide: function( event, ui ) {
-	        $( "#noise_label" ).val( "$" + ui.value );
-	      }
-	    });
-	    $( "#noise_label" ).val( "$" + $( "#noise_slider" ).slider( "value" ) );
-		
-	  });
 	  </script>
